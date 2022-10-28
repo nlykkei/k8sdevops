@@ -15,6 +15,14 @@ spec:
     repoURL: git@github.com:nlykkei/k8sdevops.git
     targetRevision: HEAD
     path: linkerd
+    helm:
+      fileParameters:
+        - name: identityTrustAnchorsPEM
+          path: certs/ca.crt
+        - name: identity.issuer.tls.crtPEM
+          path: certs/issuer.crt
+        - name: identity.issuer.tls.keyPEM
+          path: certs/issuer.key
   destination:
     server: https://kubernetes.default.svc
     namespace: linkerd
