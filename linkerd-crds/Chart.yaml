@@ -1,0 +1,10 @@
+apiVersion: v2
+name: linkerd-crds
+description: linkerd-crds
+type: application
+version: "1.0.0"
+appVersion: "1.0.0"
+dependencies:
+  - name: linkerd-crds
+    version: "1.4.0"
+    repository: https://helm.linkerd.io/stable

@@ -1,0 +1,6 @@
+dependencies:
+- name: linkerd-control-plane
+  repository: https://helm.linkerd.io/stable
+  version: 1.9.4
+digest: sha256:883b4d703295f0c0bf41b049429992b998702815d913d4a2b804cace72485520
+generated: "2022-10-27T13:46:12.246018+02:00"

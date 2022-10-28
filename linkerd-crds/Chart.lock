@@ -1,0 +1,6 @@
+dependencies:
+- name: linkerd-crds
+  repository: https://helm.linkerd.io/stable
+  version: 1.4.0
+digest: sha256:2dbd402bce0e9e3a67dcae3bffa49674f2305e569de28fbfb619d1c8b03d9e89
+generated: "2022-10-27T14:06:30.107093+02:00"
