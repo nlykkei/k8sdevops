@@ -18,11 +18,11 @@ spec:
     helm:
       fileParameters:
         - name: identityTrustAnchorsPEM
-          path: certs/ca.crt
+          path: ./certs/ca.crt
         - name: identity.issuer.tls.crtPEM
-          path: certs/issuer.crt
+          path: ./certs/issuer.crt
         - name: identity.issuer.tls.keyPEM
-          path: certs/issuer.key
+          path: ./certs/issuer.key
   destination:
     server: https://kubernetes.default.svc
     namespace: linkerd
