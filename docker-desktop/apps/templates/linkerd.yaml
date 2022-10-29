@@ -1,20 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: linkerd-crds
+  name: linkerd
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
     name: linkerd
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: git@github.com:nlykkei/k8sdevops.git
     targetRevision: HEAD
-    path: linkerd-crds
+    path: core/linkerd
+    helm:
+      parameters:
+        - name: linkerd-control-plane.proxyInit.runAsRoot
+          value: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: linkerd
