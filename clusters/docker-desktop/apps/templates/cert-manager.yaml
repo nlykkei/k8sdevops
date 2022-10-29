@@ -15,7 +15,6 @@ spec:
     repoURL: git@github.com:nlykkei/k8sdevops.git
     targetRevision: HEAD
     path: core/cert-manager
-    helm: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
