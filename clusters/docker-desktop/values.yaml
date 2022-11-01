@@ -1,0 +1,9 @@
+linkerd:
+  helm:
+    parameters:
+      - name: linkerd-control-plane.proxyInit.runAsRoot
+        value: "true"
+
+linkerd-crds: {}
+
+cert-manager: {}

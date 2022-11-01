@@ -9,7 +9,10 @@ spec:
   project: default
   source:
     repoURL: "git@github.com:nlykkei/k8sdevops.git"
-    path: clusters/docker-desktop/apps
+    path: core/apps
+    helm:
+      valueFiles:
+        - ../../clusters/docker-desktop/values.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
