@@ -15,9 +15,9 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     path: core/cert-manager
-    {{- if .Values.cert-manager.helm }}
+    {{- if index .Values "cert-manager" "helm" }}
     helm:
-      {{- toYaml .Values.cert-manager.helm | nindent 6 }}
+      {{- toYaml index .Values "cert-manager" "helm" | nindent 6 }}
     {{- end }}
   destination:
     server: {{ .Values.spec.destination.server }}
