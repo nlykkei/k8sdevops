@@ -3,7 +3,44 @@ linkerd:
     parameters:
       - name: linkerd-control-plane.proxyInit.runAsRoot
         value: "true"
+    values: |
+      linkerd-control-plane:
+        identityTrustAnchorsPEM: |
+          -----BEGIN CERTIFICATE-----
+          MIIBjDCCATOgAwIBAgIQAZ4yXdxVzIXe9FrKS8kxRzAKBggqhkjOPQQDAjAlMSMw
+          IQYDVQQDExpyb290LmxpbmtlcmQuY2x1c3Rlci5sb2NhbDAeFw0yMjEwMjgwNzQ2
+          MDVaFw0zMjEwMjUwNzQ2MDVaMCUxIzAhBgNVBAMTGnJvb3QubGlua2VyZC5jbHVz
+          dGVyLmxvY2FsMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2sPKI8iwje1Fdaj5
+          J+hNN7/643LbN/7mRwtI7USyBEtfNd5D5Y7zAXsoyrj5/fP8+6cuvMvw1Eqj1cIL
+          ajAOTqNFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYD
+          VR0OBBYEFL5Aedsl3UIGjgJO8kTlnba2+fi0MAoGCCqGSM49BAMCA0cAMEQCIGHJ
+          HjPFUgdlfjKsQCZsQfKGdm6ga5ZNrlMnJLMQtO5xAiAXthjpKnsODALGUe1Bwij+
+          vcJSmOXqCbeLkQRL+iyOPA==
+          -----END CERTIFICATE-----
+        identity:
+          issuer:
+            tls:
+              crtPEM: |
+                -----BEGIN CERTIFICATE-----
+                MIIBtDCCAVmgAwIBAgIRAN1GhOQmyYgJvtDMvQVxJEYwCgYIKoZIzj0EAwIwJTEj
+                MCEGA1UEAxMacm9vdC5saW5rZXJkLmNsdXN0ZXIubG9jYWwwHhcNMjIxMDI4MDc0
+                NjE0WhcNMjMxMDI4MDc0NjE0WjApMScwJQYDVQQDEx5pZGVudGl0eS5saW5rZXJk
+                LmNsdXN0ZXIubG9jYWwwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARTkqpHDkq4
+                4pQT8S90CXFmla6M8Ccj64Ycn+ISQP6ze7N+Ygof6DiHNdobRjAPoa9IEv8CiyYQ
+                LX9CN3RfLb+ao2YwZDAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIB
+                ADAdBgNVHQ4EFgQUFzdIA7DwwrBusIvZ+4ksTOtKnhcwHwYDVR0jBBgwFoAUvkB5
+                2yXdQgaOAk7yROWdtrb5+LQwCgYIKoZIzj0EAwIDSQAwRgIhAIyrU4xYopXVxqEj
+                GeQervWDPej8+r48jbR5w0z03qOgAiEA3zBMGtaXpN3y/swYSXJaISE0VbJPzCBn
+                L0IPGa4ygV0=
+                -----END CERTIFICATE-----
+              keyPEM: |
+                -----BEGIN EC PRIVATE KEY-----
+                MHcCAQEEIJN0XJUEsAeyZ47jZuF85qVIzBbsChTk+l8dLXjU/fz5oAoGCCqGSM49
+                AwEHoUQDQgAEU5KqRw5KuOKUE/EvdAlxZpWujPAnI+uGHJ/iEkD+s3uzfmIKH+g4
+                hzXaG0YwD6GvSBL/AosmEC1/Qjd0Xy2/mg==
+                -----END EC PRIVATE KEY-----
 
 linkerd-crds: {}
 
-cert-manager: {}
+cert-manager:
+  installCRDs: true
