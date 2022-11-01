@@ -15,9 +15,9 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     path: core/linkerd-crds
-    {{- if index .Values "linkerd-crds" "helm" }}
+    {{- if (index .Values "linkerd-crds" "helm") }}
     helm:
-      {{- toYaml index .Values "linkerd-crds" "helm" | nindent 6 }}
+      {{- toYaml (index .Values "linkerd-crds" "helm") | nindent 6 }}
     {{- end }}
   destination:
     server: {{ .Values.spec.destination.server }}
