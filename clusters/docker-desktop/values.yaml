@@ -46,4 +46,4 @@ cert-manager:
   helm:
     parameters:
       - name: cert-manager.installCRDs
-        value: true
+        value: "true"
