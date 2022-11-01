@@ -43,4 +43,7 @@ linkerd:
 linkerd-crds: {}
 
 cert-manager:
-  installCRDs: true
+  helm:
+    parameters:
+      - name: cert-manager.installCRDs
+        value: true
