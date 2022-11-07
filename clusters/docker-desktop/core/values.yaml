@@ -1,3 +1,5 @@
+linkerd-crds: {}
+
 linkerd:
   helm:
     parameters:
@@ -40,10 +42,10 @@ linkerd:
                 hzXaG0YwD6GvSBL/AosmEC1/Qjd0Xy2/mg==
                 -----END EC PRIVATE KEY-----
 
-linkerd-crds: {}
-
 cert-manager:
   helm:
     parameters:
       - name: cert-manager.installCRDs
         value: "true"
+
+kyverno: {}
