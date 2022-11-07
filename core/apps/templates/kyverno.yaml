@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager
+  name: kyverno
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    name: cert-manager
+    name: kyverno
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
@@ -14,14 +14,14 @@ spec:
   source:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-    path: core/charts/cert-manager
-    {{- if (index .Values "cert-manager" "helm") }}
+    path: core/charts/kyverno
+    {{- if .Values.kyverno.helm }}
     helm:
-      {{- toYaml (index .Values "cert-manager" "helm") | nindent 6 }}
+      {{- toYaml .Values.kyverno.helm | nindent 6 }}
     {{- end }}
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: cert-manager
+    namespace: kyverno
   syncPolicy:
     automated:
       prune: true

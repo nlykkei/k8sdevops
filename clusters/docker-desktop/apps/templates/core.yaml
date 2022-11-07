@@ -1,16 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps
+  name: core-apps
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
   labels:
-    name: apps
+    name: core-apps
 spec:
   project: default
   source:
-    repoURL: "git@github.com:nlykkei/k8sdevops.git"
+    repoURL: { { .Values.spec.source.repoURL } }
     targetRevision: HEAD
-    path: clusters/docker-desktop/apps
+    path: core/apps
+    helm:
+      valueFiles:
+        - ../../clusters/docker-desktop/core/values.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd

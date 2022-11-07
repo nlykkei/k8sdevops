@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-    path: core/linkerd-crds
+    path: core/charts/linkerd-crds
     {{- if (index .Values "linkerd-crds" "helm") }}
     helm:
       {{- toYaml (index .Values "linkerd-crds" "helm") | nindent 6 }}
